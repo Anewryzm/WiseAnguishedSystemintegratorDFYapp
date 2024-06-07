@@ -40,7 +40,11 @@ if st.button('Consultar'):
     # Mostrar la respuesta de la API
     if response.status_code == 200:
         st.success('Consulta enviada con éxito!')
-        st.json(response.json())
+        # st.json(response.json())
+        result = response.json()
+        # print(result['answer'])
+        st.markdown('### Resultado de la solicitud:')
+        st.markdown(result['answer'])
     else:
         st.error('Error al enviar la consulta')
         print(response.content)
